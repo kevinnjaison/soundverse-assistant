@@ -1,40 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+Tech Stack I Used
+Frontend
+Next.js (React) for the UI and mic control
 
-## Getting Started
+Web APIs:
 
-First, run the development server:
+Web Audio API – for real-time audio manipulation
 
-```bash
+SpeechRecognition – to understand what you say
+
+SpeechSynthesis – to talk back to you
+
+Backend
+FastAPI (Python) to process audio intent text and return smart responses
+
+(No paid APIs used — it’s all open source and browser-powered!)
+
+
+
+
+
+
+
+ 
+What the Experience Feels Like
+
+
+Click the Start Assistant button.
+
+It says: “Hi Kevin, I’m listening. Say something like add reverb or stop.”
+
+You say: “Add delay” → and boom! 🎉 The delay effect is added to your voice.
+
+Assistant: “Adding delay. What would you like to do next?”
+
+You say: “Pitch shift up” → done.
+
+You say: “Stop” → it shuts everything down smooth
+
+
+🗂️ Project Structure
+
+soundverse-assistant/
+├── backend-fastapi/
+│   └── main.py        # FastAPI logic
+├── frontend/
+│   └── pages/
+│       └── index.js   # Main assistant UI
+
+How to run
+
+Frontend (Next.js)
+
+cd soundverse-assistant
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Backend (FastAPI)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+cd backend-fastapi
+python -m venv venv
+venv\Scripts\activate  # Windows
+pip install fastapi uvicorn
+uvicorn main:app --reload --port 8000
